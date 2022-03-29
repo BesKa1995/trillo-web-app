@@ -5,7 +5,7 @@
   min-height: 50rem;
   box-shadow: var(--shadow-dark);
 
-  @include respond (75em) {
+  @include respond ($bp-largest) {
     margin: 0;
     width: 100%;
     max-width: 100%;
@@ -20,12 +20,18 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
+  @include respond($bp-smallest) {
+    flex-wrap: wrap;
+    height: 12rem;
+  }
+  
 }
 
 
 .contnet {
   display: flex;
-  @include respond(56.25em) {
+
+  @include respond($bp-medium) {
     flex-direction: column;
   }
 }
@@ -52,23 +58,48 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-2);
   border-bottom: var(--line);
+
+  @include respond ($bp-medium) {
+    padding: 3rem;
+  }
+
+
+  @include respond ($bp-small) {
+    flex-direction: column;
+
+  }
+
+
 }
 
 
 .description {
-  padding: 4.5rem;
+  padding: 3rem;
   background-color: #fff;
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
-}
-
-
-.description {
   flex: 0 0 60%;
   margin-right: 4.5rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+  @include respond($bp-medium) {
+    padding: 2rem;
+    margin-right: 3rem;
+
+  }
+
+  @include respond($bp-small) {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
 }
 
 .user-reviews {
   flex: 1;
   display: flex;
   flex-direction: column;
+
+  @include respond ($bp-small) {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
 }

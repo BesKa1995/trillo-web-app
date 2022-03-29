@@ -12,6 +12,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include respond($bp-smallest) {
+    flex: 0 0 100%; 
+    order: 1;
+    margin-left: -.5rem;
+  }
 
   &__input {
     font-family: inherit;
@@ -23,11 +28,14 @@
     width: 60%;
     transition: all .2s .1s ease;
     margin-right: -3rem;
-
+    
     &:focus {
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3);
+      @include respond($bp-smallest) {
+        border-radius: 0;
+      }
     }
 
     &::-webkit-input-placeholder {
@@ -122,7 +130,7 @@
   font-size: 1.6rem;
   list-style: none;
 
-  @include respond(56.25em) {
+  @include respond($bp-medium) {
     display: flex;
     margin-top: 0;
     // align-items: stretch;
@@ -135,12 +143,12 @@
     &:not(:last-child) {
       margin-bottom: .5rem;
 
-      @include respond(56.25em) {
+      @include respond($bp-medium) {
         margin-bottom: 0;
       }
     }
 
-    @include respond(56.25em) {
+    @include respond($bp-medium) {
       flex: 1;
     }
 
@@ -182,6 +190,11 @@
     align-items: center;
     justify-content: center;
 
+    @include respond($bp-small) {
+      flex-direction: column;
+      padding: 1;
+    }
+
   }
 
   &__icon {
@@ -189,6 +202,10 @@
     width: 1.75rem;
     height: 1.75rem;
     margin-right: 2rem;
+
+    @include respond($bp-small) {
+      margin-right: 0;
+    }
   }
 }
 
@@ -198,7 +215,7 @@
   text-align: center;
   padding: 2.5rem;
 
-  @include respond(56.25em) {
+  @include respond($bp-medium) {
     display: none;
   }
 }
@@ -234,6 +251,11 @@
       font-size: 1.75rem;
 
     }
+
+    @include respond($bp-small) {
+      font-size: 1.6rem;
+      padding: 0 2rem;
+    }
   }
 
 
@@ -267,16 +289,28 @@
     align-self: stretch;
     color: #fff;
     text-align: center;
-    padding: .5rem;
+    padding: 0 2.25rem;
+
+    @include respond($bp-small) {
+      padding: 0 1rem;
+    }
 
     &-count {
       font-size: 1.1rem;
+
+      @include respond($bp-small) {
+        padding: .5rem;
+      }
     }
 
     &-average {
 
       border-bottom: 1px solid #fff;
       font-size: 2.5rem;
+
+      @include respond($bp-small) {
+        font-size: 1.8rem;
+      }
     }
   }
 
@@ -389,7 +423,10 @@
   font-size: 1.3rem;
   align-items: center;
 
-  &__frineds {}
+  &__frineds {
+    display: flex;
+    margin-left: 1rem;
+  }
 
   &__photo {
     box-sizing: content-box;
@@ -416,6 +453,14 @@
   position: relative;
   overflow: hidden;
 
+  @include respond($bp-medium) {
+    padding: 1.5rem;
+  }
+
+  @include respond($bp-small) {
+    width: 80%;
+  }
+
   &::before {
     content: "\201C";
     font-size: 20rem;
@@ -437,6 +482,7 @@
 
   &__user {
     display: flex;
+
     align-items: center;
   }
 
