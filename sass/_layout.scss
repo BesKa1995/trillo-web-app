@@ -20,12 +20,18 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  position: sticky;
+
   @include respond($bp-smallest) {
     flex-wrap: wrap;
     height: 12rem;
   }
-  
+
 }
+
 
 
 .contnet {
@@ -34,6 +40,8 @@
   @include respond($bp-medium) {
     flex-direction: column;
   }
+
+
 }
 
 

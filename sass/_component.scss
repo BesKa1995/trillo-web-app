@@ -12,8 +12,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   @include respond($bp-smallest) {
-    flex: 0 0 100%; 
+    flex: 0 0 100%;
     order: 1;
     margin-left: -.5rem;
   }
@@ -28,11 +29,12 @@
     width: 60%;
     transition: all .2s .1s ease;
     margin-right: -3rem;
-    
+
     &:focus {
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3);
+
       @include respond($bp-smallest) {
         border-radius: 0;
       }
@@ -50,7 +52,6 @@
   }
 
   &__button {
-
     background-color: var(--color-grey-light-2);
     border: none;
 
@@ -69,7 +70,6 @@
     fill: var(--color-grey-dark-3);
   }
 }
-
 
 ///////////////////////////////////////////////
 // USER NAVIGATION
@@ -92,7 +92,66 @@
 
   &__icon-box {
     position: relative;
+
+    &__message {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      @include respond($bp-small) {
+        right:-100px
+      }
+      background-color: var(--color-grey-light-3);
+      opacity: 0;
+      visibility: hidden;
+      
+      width: 300px;
+      transform: translateY(100%);
+      border-radius: 0 0 4px 4px;
+      @include box-shadow(.25);
+
+ 
+      .message-list {
+        list-style: none;
+      }
+
+      .message__item {
+        padding: 1rem 1.5rem;
+        margin: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5rem;
+        border-radius: 20px;
+
+        .sender-name {
+          margin-left: -6rem;
+        }
+
+        .sender-photo {
+          height: 50px;
+          border-radius: 50%;
+          @include respond($bp-small) {
+            height: 40px;
+          }
+        }
+
+        .sender-message {}
+
+        &:hover {
+          background-color: var(--color-primary);
+          color: #fff;
+        }
+      }
+    }
+
+    &:hover &__message {
+      visibility: visible;
+      opacity: 1;
+    }
+
   }
+
+
 
   &__icon {
     width: 2.25rem;
@@ -116,6 +175,57 @@
     right: 1.3rem;
   }
 
+  &__user {
+    position: relative;
+
+    &:hover &-settings {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &-settings {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: var(--color-grey-light-2);
+      color: var(--color-primary-light);
+      width: 200%;
+      transform: translateY(100%);
+      @include box-shadow(.25);
+
+      .list {
+        padding: 2rem 2rem;
+        font-size: 1.7rem;
+        display: block;
+        text-transform: uppercase;
+        border: none;
+
+      }
+
+
+
+      .list__item {
+        margin: 0;
+        text-decoration: none;
+
+        &:not(:last-child) {
+          margin-bottom: 1.4rem;
+        }
+
+        &:before {
+          content: none !important;
+        }
+
+        &:hover {
+          color: var(--color-primary-dark);
+        }
+      }
+
+    }
+  }
+
   &__user-photo {
     height: 3.7rem;
     border-radius: 50%;
@@ -133,7 +243,6 @@
   @include respond($bp-medium) {
     display: flex;
     margin-top: 0;
-    // align-items: stretch;
   }
 
   &__item {
@@ -192,7 +301,7 @@
 
     @include respond($bp-small) {
       flex-direction: column;
-      padding: 1;
+      padding: 0.8rems;
     }
 
   }
@@ -407,10 +516,19 @@
     height: 1rem;
     width: 1rem;
     margin-right: .5rem;
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
 
+    //if browser supports mask properties
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+    }
+
+    //if doesnt
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
   }
 }
 
