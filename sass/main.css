@@ -376,6 +376,10 @@ body {
   }
 }
 
+.user-nav__icon-box__message .message__item .sender-message {
+  margin-left: -4rem;
+}
+
 .user-nav__icon-box__message .message__item:hover {
   background-color: var(--color-primary);
   color: #fff;
@@ -423,7 +427,6 @@ body {
 }
 
 .user-nav__user-settings {
-  opacity: 0;
   visibility: hidden;
   position: absolute;
   bottom: 0;
@@ -881,6 +884,9 @@ body {
 }
 
 .review__user {
+  padding: 2rem 3rem;
+  background-color: var(--color-grey-light-3);
+  border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

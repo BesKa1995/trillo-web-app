@@ -97,19 +97,21 @@
       position: absolute;
       bottom: 0;
       right: 0;
+
       @include respond($bp-small) {
-        right:-100px
+        right: -100px
       }
+
       background-color: var(--color-grey-light-3);
       opacity: 0;
       visibility: hidden;
-      
+
       width: 300px;
       transform: translateY(100%);
       border-radius: 0 0 4px 4px;
       @include box-shadow(.25);
 
- 
+
       .message-list {
         list-style: none;
       }
@@ -130,12 +132,15 @@
         .sender-photo {
           height: 50px;
           border-radius: 50%;
+
           @include respond($bp-small) {
             height: 40px;
           }
         }
 
-        .sender-message {}
+        .sender-message {
+          margin-left: -4rem;
+        }
 
         &:hover {
           background-color: var(--color-primary);
@@ -184,7 +189,8 @@
     }
 
     &-settings {
-      opacity: 0;
+      // opacity: 0;
+
       visibility: hidden;
       position: absolute;
       bottom: 0;
@@ -599,8 +605,10 @@
   }
 
   &__user {
+    padding: 2rem 3rem;
+    background-color: var(--color-grey-light-3);
+    border-radius: 4px;
     display: flex;
-
     align-items: center;
   }
 
